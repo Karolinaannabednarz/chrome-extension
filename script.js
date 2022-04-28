@@ -6,7 +6,13 @@ let myLeads = []
 buttonEl.addEventListener("click", function () {
     myLeads.push(inputEl.value)
     inputEl.value = ""
+
+    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+
     renderLeads()
+
+    let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+    console.log(leadsFromLocalStorage)
 })
 
 
