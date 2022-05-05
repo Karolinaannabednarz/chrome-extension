@@ -1,20 +1,27 @@
 const buttonEl = document.getElementById("input-btn")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
+const deleteBtn = document.getElementById("delete-btn")
 let myLeads = []
+
+
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    renderLeads()
+}
+
 
 buttonEl.addEventListener("click", function () {
     myLeads.push(inputEl.value)
     inputEl.value = ""
 
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
 
     renderLeads()
 
-    let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
-    console.log(leadsFromLocalStorage)
 })
-
 
 function renderLeads() {
     let listItems = ""
@@ -23,3 +30,10 @@ function renderLeads() {
     }
     ulEl.innerHTML = listItems
 }
+
+
+deleteBtn.addEventListener("dblclick", function () {
+    localStorage.clear()
+    myLeads = []
+    renderLeads()
+})
