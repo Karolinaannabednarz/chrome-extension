@@ -4,6 +4,7 @@ A simple application that is used to save interesting links found while working 
 
 ##  💿 Screenshoot
 
+![obraz](https://user-images.githubusercontent.com/71896154/172021409-9f50ee34-425a-4458-b69d-9163499a90a4.png)
 
 
 ## 💡  Technologies
